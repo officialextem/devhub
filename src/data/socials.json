@@ -2,25 +2,17 @@
   {
     "id": "github",
     "label": "GitHub",
-    "description": "Code, Experimente und Projekt-Repositories.",
-    "href": "https://github.com/",
+    "description": "GitHub-Profil mit öffentlichen ExTeM-Projekten und Repositories.",
+    "href": "https://github.com/officialextem",
     "type": "profile",
-    "placeholder": true
-  },
-  {
-    "id": "youtube-streaming",
-    "label": "YouTube / Streaming",
-    "description": "Platzhalter für Gaming-, Dev- oder Release-Content.",
-    "href": "https://example.com/social",
-    "type": "social",
-    "placeholder": true
+    "placeholder": false
   },
   {
     "id": "kontakt",
     "label": "Kontakt",
-    "description": "Platzhalter für E-Mail, Kontaktformular oder Community-Link.",
-    "href": "mailto:kontakt@example.com",
+    "description": "Kontakt per E-Mail: info@extem.de",
+    "href": "mailto:info@extem.de",
     "type": "contact",
-    "placeholder": true
+    "placeholder": false
   }
 ]

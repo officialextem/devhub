@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "vite",
     "validate:content": "node scripts/validate-content.mjs",
+    "test:impressum-metrics": "node scripts/test-impressum-metrics.mjs",
     "build": "npm run validate:content && vite build",
     "build:pages": "npm run build && node scripts/create-pages-fallback.mjs",
     "preview": "vite preview"

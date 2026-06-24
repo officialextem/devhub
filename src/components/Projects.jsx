@@ -8,6 +8,7 @@ export default function Projects() {
   const [activeCategory, setActiveCategory] = useState(allFilter);
   const [activeStatus, setActiveStatus] = useState(allFilter);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const categories = useMemo(
     () => [allFilter, ...new Set(projects.map((project) => project.category))],
@@ -55,52 +56,69 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="project-filter-panel" aria-label="Projektfilter">
-          <label className="search-field">
-            <span>Suche</span>
-            <input
-              type="search"
-              value={searchTerm}
-              onChange={(event) => setSearchTerm(event.target.value)}
-              placeholder="Projekt, Stack oder Kategorie"
-            />
-          </label>
+        <div className="project-filter-shell">
+          <button
+            aria-controls="project-filter-panel"
+            aria-expanded={isSearchOpen}
+            className="project-filter-toggle"
+            type="button"
+            onClick={() => setIsSearchOpen((current) => !current)}
+          >
+            {isSearchOpen ? "Projektsuche schließen" : "Projektsuche öffnen"}
+          </button>
 
-          <div className="filter-group" aria-label="Kategorien">
-            <span>Kategorie</span>
-            <div className="filter-buttons">
-              {categories.map((category) => (
-                <button
-                  className={category === activeCategory ? "is-active" : ""}
-                  key={category}
-                  type="button"
-                  onClick={() => setActiveCategory(category)}
-                >
-                  {category}
-                </button>
-              ))}
+          <div
+            aria-label="Projektfilter"
+            className={`project-filter-panel${isSearchOpen ? " is-open" : ""}`}
+            hidden={!isSearchOpen}
+            id="project-filter-panel"
+          >
+            <label className="search-field">
+              <span>Suche</span>
+              <input
+                type="search"
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
+                placeholder="Projekt, Stack oder Kategorie"
+              />
+            </label>
+
+            <div className="filter-group" aria-label="Kategorien">
+              <span>Kategorie</span>
+              <div className="filter-buttons">
+                {categories.map((category) => (
+                  <button
+                    className={category === activeCategory ? "is-active" : ""}
+                    key={category}
+                    type="button"
+                    onClick={() => setActiveCategory(category)}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <div className="filter-group" aria-label="Status">
-            <span>Status</span>
-            <div className="filter-buttons">
-              {statuses.map((status) => (
-                <button
-                  className={status === activeStatus ? "is-active" : ""}
-                  key={status}
-                  type="button"
-                  onClick={() => setActiveStatus(status)}
-                >
-                  {status}
-                </button>
-              ))}
+            <div className="filter-group" aria-label="Status">
+              <span>Status</span>
+              <div className="filter-buttons">
+                {statuses.map((status) => (
+                  <button
+                    className={status === activeStatus ? "is-active" : ""}
+                    key={status}
+                    type="button"
+                    onClick={() => setActiveStatus(status)}
+                  >
+                    {status}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <p className="filter-result">
-            {filteredProjects.length} von {projects.length} Projekten sichtbar
-          </p>
+            <p className="filter-result">
+              {filteredProjects.length} von {projects.length} Projekten sichtbar
+            </p>
+          </div>
         </div>
 
         <div className="project-grid">

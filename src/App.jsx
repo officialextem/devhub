@@ -5,6 +5,8 @@ import Projects from "./components/Projects.jsx";
 import Updates from "./components/Updates.jsx";
 import Socials from "./components/Socials.jsx";
 import Footer from "./components/Footer.jsx";
+import BackToTop from "./components/BackToTop.jsx";
+import CookieBanner from "./components/CookieBanner.jsx";
 import Impressum from "./pages/Impressum.jsx";
 import Datenschutz from "./pages/Datenschutz.jsx";
 
@@ -38,6 +40,8 @@ export default function App() {
       <Navbar />
       <main>{resolvePage(window.location.pathname)}</main>
       <Footer />
+      <BackToTop />
+      <CookieBanner />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import socials from "../data/socials.json";
+import ContactForm from "./ContactForm.jsx";
 
 export default function Socials() {
   return (
@@ -21,6 +22,8 @@ export default function Socials() {
             </a>
           ))}
         </div>
+
+        <ContactForm />
       </div>
     </section>
   );

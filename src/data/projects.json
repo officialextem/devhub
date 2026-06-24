@@ -4,48 +4,113 @@
     "name": "DEVHub TuningForge",
     "status": "Aktiv",
     "category": "Windows / Desktop / Safety",
-    "description": "Lokales Tooling für transparente Windows-Analyse, Vorschau-basierte Optimierung und nachvollziehbare Reports.",
+    "description": "Lokales Windows-Tooling für Analyse, Vorschau, sichere Wartungsabläufe und nachvollziehbare Reports.",
     "stack": ["Python", "CustomTkinter", "Windows", "Reports"],
     "lastUpdate": "2026-06-24",
-    "links": []
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/officialextem/devhub_tuningforge"
+      }
+    ]
   },
   {
     "id": "prompt-injector",
     "name": "Prompt-Injector",
-    "status": "In Planung",
+    "status": "Aktiv",
     "category": "Automation / Prompting",
-    "description": "Modulares Hilfstool für wiederverwendbare Prompt-Bausteine, lokale Workflows und klar strukturierte Eingaben.",
+    "description": "Tool für strukturierte Prompt-Bausteine, wiederverwendbare Vorlagen und lokale Arbeitsabläufe.",
     "stack": ["React", "JSON", "Local-first"],
     "lastUpdate": "2026-06-24",
-    "links": []
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/officialextem/prompt_injector"
+      }
+    ]
+  },
+  {
+    "id": "automation-bot",
+    "name": "Automation Bot",
+    "status": "Aktiv",
+    "category": "Automation / Desktop",
+    "description": "Lokaler Automationsbot mit Desktop-Oberfläche, Steuerfunktionen und nachvollziehbarem Laufzeitstatus.",
+    "stack": ["Python", "Tkinter", "Automation"],
+    "lastUpdate": "2026-06-24",
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/officialextem/automation_bot"
+      }
+    ]
+  },
+  {
+    "id": "codex-fabricator",
+    "name": "Codex Fabricator",
+    "status": "Aktiv",
+    "category": "DevHub / Architecture",
+    "description": "Lokale Plattformbasis für modulare Workflows, Projektbausteine, Safety-Gates und strukturierte Reports.",
+    "stack": ["TypeScript", "React", "Node.js", "Local-first"],
+    "lastUpdate": "2026-06-24",
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/officialextem/codex_fabricator"
+      }
+    ]
+  },
+  {
+    "id": "codex-token-hud",
+    "name": "Codex Token HUD",
+    "status": "Aktiv",
+    "category": "Developer Tooling",
+    "description": "HUD-Konzept zur besseren Übersicht über Token-Nutzung, Arbeitskontext und lokale Entwicklungsmetriken.",
+    "stack": ["React", "Vite", "Developer UX"],
+    "lastUpdate": "2026-06-24",
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/officialextem/codex_token_hud"
+      }
+    ]
+  },
+  {
+    "id": "devhub-updater",
+    "name": "DEVHub Updater",
+    "status": "Aktiv",
+    "category": "DevOps / Maintenance",
+    "description": "Update-Tooling für DEVHub-Projekte mit Fokus auf klare Abläufe, sichere Defaults und prüfbare Ergebnisse.",
+    "stack": ["Python", "DevOps", "Reports"],
+    "lastUpdate": "2026-06-24",
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/officialextem/devhub_updater"
+      }
+    ]
+  },
+  {
+    "id": "devhub-chat",
+    "name": "DEVHub Chat",
+    "status": "Aktiv",
+    "category": "Communication / DEVHub",
+    "description": "Chat-orientiertes DEVHub-Modul für lokale Kommunikation, Projektkontext und spätere Integrationen.",
+    "stack": ["React", "Node.js", "Chat UX"],
+    "lastUpdate": "2026-06-24",
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/officialextem/devhub_chat"
+      }
+    ]
   },
   {
     "id": "website-announcer-bot",
     "name": "Website Announcer Bot",
-    "status": "Konzept",
+    "status": "Geplant",
     "category": "Devlog / Automation",
-    "description": "Geplanter Bot, der Projekt- und Update-Daten strukturiert aktualisiert und spätere Release-Meldungen vorbereitet.",
+    "description": "Geplanter Bot zur strukturierten Aktualisierung von Projekt- und Update-Daten für die Website.",
     "stack": ["Node.js", "JSON", "Automation"],
-    "lastUpdate": "2026-06-24",
-    "links": []
-  },
-  {
-    "id": "nexusmind-core",
-    "name": "NexusMind Core",
-    "status": "Langfristige Vision",
-    "category": "AI / Agent Architecture",
-    "description": "Zukünftige modulare Core-Richtung für lokale Agenten, Services, Safety-Gates und wiederverwendbare Systembausteine.",
-    "stack": ["Architecture", "Agents", "Safety", "Local-first"],
-    "lastUpdate": "2026-06-24",
-    "links": []
-  },
-  {
-    "id": "purpledreams-kapp",
-    "name": "PurpleDreams / KApp Experimente",
-    "status": "Experiment",
-    "category": "Gaming / Community",
-    "description": "Spielerische Web- und Community-Experimente mit Hub-, Economy- und Minigame-Ideen.",
-    "stack": ["JavaScript", "HTML", "CSS", "Game UX"],
     "lastUpdate": "2026-06-24",
     "links": []
   }

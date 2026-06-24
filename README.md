@@ -2,6 +2,12 @@
 
 Persoenliche Website fuer Sebastian "ExTeM" Kozur. Die Seite dient als Landingpage, Portfolio, Projekt-Hub und vorbereiteter Devlog fuer spaetere lokale Automatisierung.
 
+Live-Domain:
+
+```text
+https://extem.de
+```
+
 Repository:
 
 ```text
@@ -63,6 +69,9 @@ src/
   App.jsx
   main.jsx
   components/
+    BackToTop.jsx
+    CookieBanner.jsx
+    ContactForm.jsx
     Navbar.jsx
     Hero.jsx
     About.jsx
@@ -97,12 +106,7 @@ Jeder Eintrag beschreibt eine Projektkarte:
   "description": "Kurze Projektbeschreibung.",
   "stack": ["Python", "CustomTkinter", "Windows"],
   "lastUpdate": "2026-06-24",
-  "links": [
-    {
-      "label": "Repo",
-      "href": "https://example.com"
-    }
-  ]
+  "links": [{ "label": "GitHub", "href": "https://github.com/officialextem/devhub_tuningforge" }]
 }
 ```
 
@@ -113,6 +117,7 @@ Regeln fuer spaetere Automatisierung:
 - `stack` bleibt ein Array aus kurzen Tags.
 - `links` darf leer sein, muss aber ein Array bleiben.
 - Ein Bot sollte bestehende Eintraege anhand von `id` aktualisieren.
+- Aktuelle Projektkarten werden ausschliesslich aus `src/data/projects.json` geladen.
 
 ## Projektfilter
 
@@ -122,6 +127,7 @@ Der Projektbereich bietet:
 - Kategorie-Filter aus `projects.json`.
 - Status-Filter aus `projects.json`.
 - Sichtbaren Ergebniszaehler.
+- Die Projektsuche ist standardmaessig eingeklappt und per Button oeffenbar.
 
 Die Filter arbeiten rein im Frontend und schreiben keine Daten.
 
@@ -158,19 +164,53 @@ Jeder Eintrag beschreibt eine sichtbare Kontakt- oder Social-Karte:
 {
   "id": "github",
   "label": "GitHub",
-  "description": "Code, Experimente und Projekt-Repositories.",
-  "href": "https://github.com/",
+  "description": "GitHub-Profil mit oeffentlichen ExTeM-Projekten und Repositories.",
+  "href": "https://github.com/officialextem",
   "type": "profile",
-  "placeholder": true
+  "placeholder": false
 }
 ```
 
 Regeln:
 
+- Social- und Kontaktkarten werden aus `src/data/socials.json` geladen.
 - `placeholder: true` kennzeichnet Links, die vor Veroeffentlichung ersetzt werden muessen.
 - Fuer echte Links `placeholder` auf `false` setzen.
 - `href` muss ein gueltiger `https://`-, `mailto:`- oder spaeter bewusst freigegebener Community-Link sein.
 - Keine privaten Telefonnummern, Adressen oder Accounts automatisch durch Bots eintragen.
+
+## Kontaktformular
+
+Das Kontaktformular ist frontend-only und nutzt einen `mailto:`-Workflow zu `info@extem.de`. Es speichert keine Formulardaten, nutzt keinen externen Formular-Dienst und taeuscht keine Server-Uebermittlung vor.
+
+## Cookie-Hinweis
+
+Die Website enthaelt einen einfachen lokalen Hinweisbanner. Er informiert, dass derzeit keine Tracking- oder Marketing-Cookies verwendet werden. Die Bestaetigung wird lokal im Browser gespeichert; es werden keine externen Consent-, Tracking- oder Analyse-Dienste eingebunden.
+
+## Impressum-Zaehldaten
+
+Beim Aufruf der Impressumsseite wird optional ein internes technisches Event an `/api/impressum-view` gesendet. Die statische GitHub-Pages-Website funktioniert auch ohne diese API. Wenn eine passende Node/API-Umgebung aktiv ist, werden nur aggregierte Tagesdaten gespeichert:
+
+- Datum
+- Anzahl der Impressumsseiten-Aufrufe
+- erster Aufruf
+- letzter Aufruf
+
+Nicht gespeichert werden vollstaendige IP-Adressen, Namen, E-Mail-Adressen, Cookies, User-Agent, Referrer, Fingerprints, Session-IDs oder Besucherprofile.
+
+Eine Tageszusammenfassung kann an `info@extem.de` gesendet werden, wenn SMTP per Umgebungsvariablen konfiguriert ist:
+
+```text
+SMTP_HOST
+SMTP_PORT
+SMTP_SECURE
+SMTP_USER
+SMTP_PASS
+MAIL_FROM
+IMPRESSUM_METRICS_FILE
+```
+
+Fehlt die Mail-Konfiguration, stuerzt die Website nicht ab; die API protokolliert nur technisch knapp, dass keine Zusammenfassung gesendet wurde.
 
 ## website_announcer-bot Konzept
 
@@ -202,7 +242,7 @@ Empfohlene Bot-Ausgabe:
 
 ## Rechtliche Seiten
 
-`src/pages/Impressum.jsx` und `src/pages/Datenschutz.jsx` sind bewusst Platzhalter. Vor einer echten Veroeffentlichung muessen die finalen Angaben ergaenzt und fachlich geprueft werden. Es wurden keine Rechtsangaben erfunden.
+`src/pages/Impressum.jsx` und `src/pages/Datenschutz.jsx` enthalten vorbereitete Angaben fuer `extem.de`, `info@extem.de` und GitHub Pages Hosting. Fehlende rechtliche Pflichtangaben sind sichtbar als manuell zu pruefen oder zu ergaenzen markiert. Es wurden keine privaten Adressen, Telefonnummern, Umsatzsteuer-IDs oder Aufsichtsbehoerden erfunden.
 
 ## Theme
 
@@ -254,9 +294,9 @@ Details:
 docs/deployment.md
 ```
 
-Es wurde kein externes Deployment ausgefuehrt und es wurden keine Tokens oder Secrets eingetragen.
+Es werden keine Tokens oder Secrets im Repository dokumentiert oder benoetigt.
 
-Vor einem echten Deployment muessen GitHub Pages im Repository auf "GitHub Actions" gestellt und echte Social-/Projektlinks sowie rechtliche Pflichtangaben geprueft werden.
+Rechtliche Pflichtangaben muessen vor produktiver Nutzung manuell geprueft werden.
 
 ## Qualitaetscheck
 
@@ -265,6 +305,7 @@ Vor einem Commit oder Release ausfuehren:
 ```powershell
 npm.cmd install
 npm.cmd run validate:content
+npm.cmd run test:impressum-metrics
 npm.cmd run build
 npm.cmd audit --audit-level=low
 ```
@@ -274,3 +315,12 @@ Optional lokal pruefen:
 ```powershell
 npm.cmd run dev
 ```
+
+## Manuelle Browser-Tests
+
+- Startseite unter `http://127.0.0.1:5173/` oeffnen.
+- Projektkarten und einklappbare Projektsuche pruefen.
+- Kontaktformular ausfuellen und sicherstellen, dass ein E-Mail-Programm vorbereitet wird.
+- Cookie-Hinweis mit `Verstanden` bestaetigen und Reload pruefen.
+- Impressum und Datenschutz ueber Footer-Links oeffnen.
+- Mobile Breite pruefen: Navigation, Projektkarten, Kontaktformular, Cookie-Hinweis und Back-to-top Button.
