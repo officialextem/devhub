@@ -2,6 +2,12 @@
 
 Persoenliche Website fuer Sebastian "ExTeM" Kozur. Die Seite dient als Landingpage, Portfolio, Projekt-Hub und vorbereiteter Devlog fuer spaetere lokale Automatisierung.
 
+Repository:
+
+```text
+https://github.com/officialextem/devhub
+```
+
 ## Tech-Stack
 
 - Vite
@@ -42,6 +48,12 @@ Vorschau des Produktionsbuilds:
 
 ```powershell
 npm.cmd run preview
+```
+
+GitHub-Pages-Build mit SPA-Fallback:
+
+```powershell
+npm.cmd run build:pages
 ```
 
 ## Projektstruktur
@@ -216,6 +228,26 @@ Vorbereitete Deploy-Ziele:
 - Netlify: `netlify.toml`
 - Vercel: `vercel.json`
 
+Der GitHub-Pages-Workflow laeuft bei Push auf `main` oder `master` und nutzt `npm ci` sowie `npm run build:pages`. Dabei wird zusaetzlich `dist/404.html` erzeugt, damit direkte Routen wie `/impressum` und `/datenschutz` auf GitHub Pages funktionieren.
+
+### Custom Domain
+
+Final geplante Domain:
+
+```text
+extem.de
+```
+
+Geplante www-Subdomain:
+
+```text
+www.extem.de
+```
+
+GitHub Pages bekommt die Custom Domain ueber `public/CNAME`. Vite ist fuer Root-Auslieferung mit `base: "/"` konfiguriert, weil die Website direkt unter `https://extem.de/` laufen soll.
+
+DNS-Eintraege fuer `extem.de` und `www.extem.de` werden nicht im Repository gepflegt. Sie muessen ausserhalb des Repos beim Domainanbieter gesetzt werden. Keine DNS-Secrets, Tokens oder Zugangsdaten in dieses Projekt eintragen.
+
 Details:
 
 ```text
@@ -224,11 +256,15 @@ docs/deployment.md
 
 Es wurde kein externes Deployment ausgefuehrt und es wurden keine Tokens oder Secrets eingetragen.
 
+Vor einem echten Deployment muessen GitHub Pages im Repository auf "GitHub Actions" gestellt und echte Social-/Projektlinks sowie rechtliche Pflichtangaben geprueft werden.
+
 ## Qualitaetscheck
 
 Vor einem Commit oder Release ausfuehren:
 
 ```powershell
+npm.cmd install
+npm.cmd run validate:content
 npm.cmd run build
 npm.cmd audit --audit-level=low
 ```

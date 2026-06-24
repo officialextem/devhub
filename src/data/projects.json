@@ -1,0 +1,52 @@
+[
+  {
+    "id": "devhub-tuningforge",
+    "name": "DEVHub TuningForge",
+    "status": "Aktiv",
+    "category": "Windows / Desktop / Safety",
+    "description": "Lokales Tooling für transparente Windows-Analyse, Vorschau-basierte Optimierung und nachvollziehbare Reports.",
+    "stack": ["Python", "CustomTkinter", "Windows", "Reports"],
+    "lastUpdate": "2026-06-24",
+    "links": []
+  },
+  {
+    "id": "prompt-injector",
+    "name": "Prompt-Injector",
+    "status": "In Planung",
+    "category": "Automation / Prompting",
+    "description": "Modulares Hilfstool für wiederverwendbare Prompt-Bausteine, lokale Workflows und klar strukturierte Eingaben.",
+    "stack": ["React", "JSON", "Local-first"],
+    "lastUpdate": "2026-06-24",
+    "links": []
+  },
+  {
+    "id": "website-announcer-bot",
+    "name": "Website Announcer Bot",
+    "status": "Konzept",
+    "category": "Devlog / Automation",
+    "description": "Geplanter Bot, der Projekt- und Update-Daten strukturiert aktualisiert und spätere Release-Meldungen vorbereitet.",
+    "stack": ["Node.js", "JSON", "Automation"],
+    "lastUpdate": "2026-06-24",
+    "links": []
+  },
+  {
+    "id": "nexusmind-core",
+    "name": "NexusMind Core",
+    "status": "Langfristige Vision",
+    "category": "AI / Agent Architecture",
+    "description": "Zukünftige modulare Core-Richtung für lokale Agenten, Services, Safety-Gates und wiederverwendbare Systembausteine.",
+    "stack": ["Architecture", "Agents", "Safety", "Local-first"],
+    "lastUpdate": "2026-06-24",
+    "links": []
+  },
+  {
+    "id": "purpledreams-kapp",
+    "name": "PurpleDreams / KApp Experimente",
+    "status": "Experiment",
+    "category": "Gaming / Community",
+    "description": "Spielerische Web- und Community-Experimente mit Hub-, Economy- und Minigame-Ideen.",
+    "stack": ["JavaScript", "HTML", "CSS", "Game UX"],
+    "lastUpdate": "2026-06-24",
+    "links": []
+  }
+]

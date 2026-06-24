@@ -1,0 +1,26 @@
+[
+  {
+    "id": "github",
+    "label": "GitHub",
+    "description": "Code, Experimente und Projekt-Repositories.",
+    "href": "https://github.com/",
+    "type": "profile",
+    "placeholder": true
+  },
+  {
+    "id": "youtube-streaming",
+    "label": "YouTube / Streaming",
+    "description": "Platzhalter für Gaming-, Dev- oder Release-Content.",
+    "href": "https://example.com/social",
+    "type": "social",
+    "placeholder": true
+  },
+  {
+    "id": "kontakt",
+    "label": "Kontakt",
+    "description": "Platzhalter für E-Mail, Kontaktformular oder Community-Link.",
+    "href": "mailto:kontakt@example.com",
+    "type": "contact",
+    "placeholder": true
+  }
+]
